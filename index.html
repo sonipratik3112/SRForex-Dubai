@@ -380,42 +380,63 @@ async function loadRates(){
   return;
  }
 
- try{
-  const response=await fetch(API_ENDPOINT,{
-   headers:{"Accept":"application/json"}
-  });
-  if(!response.ok) throw new Error("API request failed");
+ 
+const quotes = await Promise.allSettled(
+  symbols.map(async (symbol) => {
+    const url = `${API_ENDPOINT}?symbol=${encodeURIComponent(symbol)}`;
 
-  const result=await response.json();
-  if(!Array.isArray(result.data)) throw new Error("Invalid data format");
+    const response = await fetch(url, {
+      headers: { "Accept": "application/json" }
+    });
 
-  const valid=result.data.filter(x=>
-   symbols.includes(x.symbol) &&
-   Number.isFinite(Number(x.price))
-  );
+    const quote = await response.json();
 
-  const bySymbol=new Map(valid.map(x=>[x.symbol,x]));
-
-  document.getElementById("ratesTable").innerHTML=
-   symbols.map(s=>{
-    const item=bySymbol.get(s);
-    if(!item){
-     return `<tr><td>${s}</td><td>—</td><td>—</td><td>Unavailable</td></tr>`;
+    if (!response.ok || !quote.success) {
+      throw new Error(`Failed: ${symbol}`);
     }
-    const change=Number(item.change_percent);
-    const changeText=Number.isFinite(change)?change.toFixed(2)+"%":"—";
-    return `<tr>
-     <td>${s}</td>
-     <td>${Number(item.price).toLocaleString("en-US")}</td>
-     <td>${changeText}</td>
-     <td>API</td>
-    </tr>`;
-   }).join("");
 
-  document.getElementById("apiStatus").textContent=
-   "Connected – API response received";
-  document.getElementById("updated").textContent=
-   "Last update: "+(result.updated_at || "Time not supplied");
+    return quote;
+  })
+);
+
+const valid = quotes
+  .filter(x => x.status === "fulfilled")
+  .map(x => x.value);
+
+const bySymbol = new Map(
+  valid.map(x => [x.symbol, x])
+);
+
+document.getElementById("ratesTable").innerHTML =
+  symbols.map(s => {
+    const item = bySymbol.get(s);
+
+    if (!item) {
+      return `<tr>
+        <td>${s}</td>
+        <td>—</td>
+        <td>—</td>
+        <td>Unavailable</td>
+      </tr>`;
+    }
+
+    const change = Number(item.percent_change);
+
+    return `<tr>
+      <td>${s}</td>
+      <td>${Number(item.price).toLocaleString("en-US")}</td>
+      <td>${Number.isFinite(change) ? change.toFixed(3) + "%" : "—"}</td>
+      <td>${item.source}</td>
+    </tr>`;
+  }).join("");
+
+document.getElementById("apiStatus").textContent =
+  `Connected — ${valid.length} of ${symbols.length} instruments`;
+
+document.getElementById("updated").textContent =
+  "Last updated: " +
+  (valid[0]?.datetime || "Time unavailable");
+
  }catch(error){
   document.getElementById("apiStatus").textContent=
    "Connection unavailable";
