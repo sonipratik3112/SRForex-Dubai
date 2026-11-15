@@ -3,130 +3,156 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SRForex Dubai | Official Website</title>
-<meta name="description" content="SRForex Dubai - Forex Education, Market Analysis and Demo Practice">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SRForex Dubai | Live Market Dashboard</title>
+<meta name="description" content="SRForex Dubai - Forex market information, live charts, gold and silver market watch.">
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root{
+ --gold:#b58a35;
+ --gold-light:#f5ead0;
+ --dark:#24211b;
+ --bg:#faf9f5;
+ --white:#fff;
+ --muted:#777;
+ --border:#e8dfcd;
 }
-body {
-  font-family: Arial, sans-serif;
-  background: #faf9f5;
-  color: #222;
+*{box-sizing:border-box}
+body{
+ margin:0;
+ font-family:Arial,sans-serif;
+ background:var(--bg);
+ color:var(--dark);
 }
-header {
-  background: white;
-  padding: 20px 6%;
-  border-bottom: 2px solid #c49a45;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
+header{
+ background:white;
+ padding:19px 5%;
+ border-bottom:2px solid var(--gold);
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ flex-wrap:wrap;
+ gap:15px;
 }
-.logo {
-  font-size: 25px;
-  font-weight: bold;
-  color: #b58a35;
+.logo{
+ font-size:25px;
+ font-weight:bold;
+ color:var(--gold);
 }
-nav a {
-  text-decoration: none;
-  color: #333;
-  margin: 8px;
-  font-size: 14px;
+nav a{
+ text-decoration:none;
+ color:#333;
+ margin:7px;
+ font-size:14px;
 }
-.hero {
-  text-align: center;
-  padding: 90px 20px;
-  background: linear-gradient(120deg,#fff,#f1e4c7);
+.hero{
+ padding:48px 15px;
+ text-align:center;
+ background:linear-gradient(120deg,#fff,#f2e5c7);
 }
-.hero h1 {
-  font-size: 44px;
-  margin-bottom: 18px;
+.hero h1{font-size:36px}
+.hero span{color:var(--gold)}
+.hero p{line-height:1.7}
+.container{
+ max-width:1150px;
+ margin:auto;
+ padding:20px;
 }
-.gold {
-  color: #b58a35;
+.card{
+ background:white;
+ border:1px solid var(--border);
+ border-radius:13px;
+ padding:20px;
+ margin:18px 0;
+ box-shadow:0 4px 15px #00000008;
 }
-.hero p {
-  font-size: 18px;
-  line-height: 1.7;
-  margin-bottom: 25px;
+h2{color:#987128}
+.status{
+ display:inline-block;
+ padding:7px 12px;
+ border-radius:20px;
+ background:#fff1d6;
+ color:#8c6725;
+ font-size:12px;
+ font-weight:bold;
 }
-.btn {
-  display: inline-block;
-  background: #b58a35;
-  color: white;
-  padding: 14px 25px;
-  border: none;
-  border-radius: 6px;
-  text-decoration: none;
-  cursor: pointer;
+.grid{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+ gap:15px;
 }
-section {
-  max-width: 1100px;
-  margin: auto;
-  padding: 55px 20px;
+.metric{
+ background:#fff9ed;
+ border:1px solid var(--border);
+ padding:16px;
+ border-radius:10px;
 }
-h2 {
-  text-align: center;
-  margin-bottom: 30px;
-  color: #a17a2c;
-  font-size: 30px;
+.metric strong{
+ display:block;
+ margin-top:9px;
+ font-size:20px;
+ color:var(--gold);
 }
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-  gap: 20px;
+.small{font-size:12px;color:var(--muted)}
+select,button{
+ padding:12px;
+ border:1px solid var(--border);
+ border-radius:7px;
+ font-size:15px;
 }
-.card {
-  background: white;
-  padding: 25px;
-  border: 1px solid #eadbb9;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px #00000008;
+select{background:white;width:100%}
+button{
+ background:var(--gold);
+ color:white;
+ cursor:pointer;
+ font-weight:bold;
 }
-.card h3 {
-  color: #a17a2c;
-  margin-bottom: 12px;
+.chart{
+ height:480px;
+ width:100%;
 }
-.card p {
-  color: #666;
-  line-height: 1.6;
+.tv-container{
+ width:100%;
+ min-height:65px;
+ overflow:hidden;
 }
-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: white;
+.table-wrap{overflow-x:auto}
+table{
+ width:100%;
+ border-collapse:collapse;
+ min-width:480px;
 }
-th,td {
-  padding: 15px;
-  border-bottom: 1px solid #eee;
-  text-align: left;
+th,td{
+ padding:13px 9px;
+ text-align:left;
+ border-bottom:1px solid #eee;
+ font-size:14px;
 }
-th {
-  background: #f0e5cc;
+th{
+ background:#f5ecd9;
+ color:#846323;
 }
-.notice {
-  background: #fff5df;
-  padding: 15px;
-  border-left: 4px solid #b58a35;
-  line-height: 1.6;
-  margin-bottom: 20px;
+footer{
+ background:#24211b;
+ color:white;
+ text-align:center;
+ padding:30px 15px;
+ line-height:1.8;
 }
-footer {
-  background: #202020;
-  color: white;
-  text-align: center;
-  padding: 35px 15px;
-  line-height: 1.8;
+.notice{
+ background:#fff5df;
+ border-left:4px solid var(--gold);
+ padding:14px;
+ line-height:1.6;
+ font-size:13px;
 }
-@media(max-width:600px) {
-  .hero h1 {font-size:32px;}
-  header {gap:15px;}
-  nav a {margin:5px;}
+@media(max-width:600px){
+ .hero h1{font-size:28px}
+ header{padding:16px}
+ nav{width:100%}
+ nav a{margin-right:10px}
+ .container{padding:12px}
+ .chart{height:400px}
 }
 </style>
 </head>
@@ -134,97 +160,307 @@ footer {
 <body>
 
 <header>
-  <div class="logo">SRFOREX DUBAI</div>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#markets">Markets</a>
-    <a href="#academy">Academy</a>
-    <a href="#demo">Demo</a>
-    <a href="#contact">Contact</a>
-  </nav>
+ <div class="logo">SRFOREX DUBAI</div>
+ <nav>
+  <a href="#home">Home</a>
+  <a href="#rates">Markets</a>
+  <a href="#charts">Charts</a>
+  <a href="#about">About</a>
+ </nav>
 </header>
 
-<div class="hero" id="home">
-  <h1>Welcome to <span class="gold">SRForex Dubai</span></h1>
-  <p>
-    Learn Forex. Understand Markets.<br>
-    Practice Trading with Virtual Money.
-  </p>
-  <a href="#demo" class="btn">Explore Demo Platform</a>
-</div>
-
-<section id="markets">
-  <h2>Forex Market Watch</h2>
-  <div class="notice">
-    Demonstration prices only. These are not live market rates.
-  </div>
-  <table>
-    <tr>
-      <th>Currency Pair</th>
-      <th>Sample Rate</th>
-      <th>Data Status</th>
-    </tr>
-    <tr><td>EUR/USD</td><td>1.0850</td><td>Sample</td></tr>
-    <tr><td>GBP/USD</td><td>1.2700</td><td>Sample</td></tr>
-    <tr><td>USD/JPY</td><td>150.00</td><td>Sample</td></tr>
-    <tr><td>AUD/USD</td><td>0.6550</td><td>Sample</td></tr>
-  </table>
+<section class="hero" id="home">
+ <h1>Welcome to <span>SRForex Dubai</span></h1>
+ <p>Global Forex Markets | Gold | Silver | Market Analysis</p>
+ <span class="status">MARKET INFORMATION PLATFORM</span>
 </section>
 
-<section id="academy">
-  <h2>SRForex Academy</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Forex Basics</h3>
-      <p>Learn currency pairs, pips, spreads and forex fundamentals.</p>
-    </div>
-    <div class="card">
-      <h3>Technical Analysis</h3>
-      <p>Understand charts, trends and technical indicators.</p>
-    </div>
-    <div class="card">
-      <h3>Risk Management</h3>
-      <p>Understand leverage, position sizing and trading risks.</p>
-    </div>
-    <div class="card">
-      <h3>Market Education</h3>
-      <p>Learn about global financial markets and economic events.</p>
-    </div>
+<main class="container">
+
+<section class="card">
+ <h2>Global Market Ticker</h2>
+ <p class="small">TradingView market widget. Data availability and delay depend on the underlying provider.</p>
+ <div class="tv-container">
+  <div class="tradingview-widget-container">
+   <div class="tradingview-widget-container__widget"></div>
+   <script type="text/javascript"
+   src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js"
+   async>
+   {
+    "symbols":[
+     {"proName":"FX:EURUSD","title":"EUR/USD"},
+     {"proName":"FX:GBPUSD","title":"GBP/USD"},
+     {"proName":"FX:USDJPY","title":"USD/JPY"},
+     {"proName":"FX:AUDUSD","title":"AUD/USD"},
+     {"proName":"FX:USDCAD","title":"USD/CAD"},
+     {"proName":"FX:USDCHF","title":"USD/CHF"},
+     {"proName":"FX:NZDUSD","title":"NZD/USD"},
+     {"proName":"OANDA:XAUUSD","title":"GOLD"},
+     {"proName":"OANDA:XAGUSD","title":"SILVER"}
+    ],
+    "showSymbolLogo":true,
+    "colorTheme":"light",
+    "isTransparent":false,
+    "displayMode":"adaptive",
+    "locale":"en"
+   }
+   </script>
   </div>
+ </div>
 </section>
 
-<section id="demo">
-  <h2>Demo Trading Account</h2>
-  <div class="card">
-    <h3>Virtual Balance: $10,000</h3>
-    <p>This is a virtual practice account. No real money or trades are involved.</p>
-    <br>
-    <button class="btn" onclick="alert('Welcome to SRForex Demo Practice. No real trade was executed.')">
-      Start Demo Practice
-    </button>
-  </div>
+<section class="card" id="rates">
+ <h2>Forex Market Watch</h2>
+ <div class="notice">
+  API connection status:
+  <strong id="apiStatus">Not connected</strong><br>
+  Prices will only be marked LIVE after the secure API connection
+  is verified. No invented prices are displayed.
+ </div>
+
+ <p class="small">20 currency pairs + Gold + Silver</p>
+
+ <div class="table-wrap">
+ <table>
+  <thead>
+   <tr>
+    <th>Instrument</th>
+    <th>API Price</th>
+    <th>Change %</th>
+    <th>Source</th>
+   </tr>
+  </thead>
+  <tbody id="ratesTable">
+   <tr><td colspan="4">Waiting for secure market data connection...</td></tr>
+  </tbody>
+ </table>
+ </div>
+ <p class="small" id="updated">Last update: Not available</p>
 </section>
 
-<section id="contact">
-  <h2>About SRForex Dubai</h2>
-  <div class="card">
-    <h3>Founder: Pratik Soni</h3>
-    <p>
-      SRForex Dubai aims to provide forex education,
-      market awareness and virtual trading practice
-      to an international audience.
-    </p>
+<section class="card" id="charts">
+ <h2>Professional Trading Charts</h2>
+ <label for="symbol">Choose Instrument</label>
+ <select id="symbol">
+  <option value="FX:EURUSD">EUR/USD</option>
+  <option value="FX:GBPUSD">GBP/USD</option>
+  <option value="FX:USDJPY">USD/JPY</option>
+  <option value="FX:USDCHF">USD/CHF</option>
+  <option value="FX:USDCAD">USD/CAD</option>
+  <option value="FX:AUDUSD">AUD/USD</option>
+  <option value="FX:NZDUSD">NZD/USD</option>
+  <option value="FX:EURGBP">EUR/GBP</option>
+  <option value="FX:EURJPY">EUR/JPY</option>
+  <option value="FX:GBPJPY">GBP/JPY</option>
+  <option value="FX:AUDJPY">AUD/JPY</option>
+  <option value="FX:EURAUD">EUR/AUD</option>
+  <option value="FX:EURCHF">EUR/CHF</option>
+  <option value="FX:GBPCHF">GBP/CHF</option>
+  <option value="FX:CADJPY">CAD/JPY</option>
+  <option value="FX:CHFJPY">CHF/JPY</option>
+  <option value="FX:GBPAUD">GBP/AUD</option>
+  <option value="FX:GBPCAD">GBP/CAD</option>
+  <option value="FX:AUDCAD">AUD/CAD</option>
+  <option value="FX:NZDJPY">NZD/JPY</option>
+  <option value="OANDA:XAUUSD">GOLD / USD</option>
+  <option value="OANDA:XAGUSD">SILVER / USD</option>
+ </select>
+
+ <div class="chart" id="chartArea">
+  <div class="tradingview-widget-container"
+       style="height:100%;width:100%">
+   <div class="tradingview-widget-container__widget"
+        style="height:100%;width:100%"></div>
+   <script type="text/javascript"
+   src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js"
+   async>
+   {
+    "autosize":true,
+    "symbol":"FX:EURUSD",
+    "interval":"60",
+    "timezone":"Etc/UTC",
+    "theme":"light",
+    "style":"1",
+    "locale":"en",
+    "allow_symbol_change":true,
+    "calendar":false,
+    "hide_side_toolbar":false,
+    "hide_top_toolbar":false,
+    "withdateranges":true,
+    "details":true,
+    "hotlist":false,
+    "studies":[]
+   }
+   </script>
   </div>
+ </div>
+ <p class="small">Charts supplied by TradingView. Market data may be delayed or subject to provider restrictions.</p>
 </section>
+
+<section class="card">
+ <h2>Market Instruments</h2>
+ <div class="grid">
+  <div class="metric">Forex Pairs<strong>20</strong></div>
+  <div class="metric">Gold<strong>XAU/USD</strong></div>
+  <div class="metric">Silver<strong>XAG/USD</strong></div>
+  <div class="metric">Chart Provider<strong>TradingView</strong></div>
+ </div>
+</section>
+
+<section class="card" id="about">
+ <h2>About SRForex Dubai</h2>
+ <p>SRForex Dubai is a global market information and financial
+ education platform founded by Pratik Soni.</p>
+ <p>Our aim is to make market information and charting tools
+ accessible to a worldwide audience.</p>
+</section>
+
+<section class="notice">
+ <strong>Important Risk Disclosure</strong><br>
+ This website provides market information and educational
+ content. Quotes may be delayed and are not guaranteed to be
+ executable prices. This website does not currently accept
+ deposits, execute real-money trades or provide brokerage
+ services. Trading involves significant financial risk.
+</section>
+
+</main>
 
 <footer>
-  <h3>SRFOREX DUBAI</h3>
-  <p>Founder: Pratik Soni</p>
-  <p>Dubai | India | Worldwide</p>
-  <p>Educational website only. No real-money trading,
-  brokerage or guaranteed returns are offered.</p>
-  <p>© 2026 SRForex Dubai. All Rights Reserved.</p>
+ <h2 style="color:#d9b65e">SRFOREX DUBAI</h2>
+ <p>Founder: Pratik Soni</p>
+ <p>Dubai | India | Worldwide</p>
+ <p>© 2026 SRForex Dubai. All Rights Reserved.</p>
 </footer>
+
+<script>
+const symbols = [
+ "EUR/USD","GBP/USD","USD/JPY","USD/CHF","USD/CAD",
+ "AUD/USD","NZD/USD","EUR/GBP","EUR/JPY","GBP/JPY",
+ "AUD/JPY","EUR/AUD","EUR/CHF","GBP/CHF","CAD/JPY",
+ "CHF/JPY","GBP/AUD","GBP/CAD","AUD/CAD","NZD/JPY",
+ "XAU/USD","XAG/USD"
+];
+
+/*
+ IMPORTANT:
+ Set this to your secure backend endpoint.
+ Never put a Twelve Data API key in this file.
+ Expected response:
+ {
+   "data":[
+     {
+       "symbol":"EUR/USD",
+       "price":1.085,
+       "change_percent":0.25
+     }
+   ],
+   "updated_at":"2026-11-16T12:00:00Z"
+ }
+*/
+const API_ENDPOINT = "";
+
+function renderUnavailable(){
+ const tbody=document.getElementById("ratesTable");
+ tbody.innerHTML=symbols.map(s=>
+  `<tr>
+    <td>${s}</td>
+    <td>—</td>
+    <td>—</td>
+    <td>Not connected</td>
+   </tr>`
+ ).join("");
+}
+
+async function loadRates(){
+ if(!API_ENDPOINT){
+  document.getElementById("apiStatus").textContent=
+   "Backend setup required";
+  renderUnavailable();
+  return;
+ }
+
+ try{
+  const response=await fetch(API_ENDPOINT,{
+   headers:{"Accept":"application/json"}
+  });
+  if(!response.ok) throw new Error("API request failed");
+
+  const result=await response.json();
+  if(!Array.isArray(result.data)) throw new Error("Invalid data format");
+
+  const valid=result.data.filter(x=>
+   symbols.includes(x.symbol) &&
+   Number.isFinite(Number(x.price))
+  );
+
+  const bySymbol=new Map(valid.map(x=>[x.symbol,x]));
+
+  document.getElementById("ratesTable").innerHTML=
+   symbols.map(s=>{
+    const item=bySymbol.get(s);
+    if(!item){
+     return `<tr><td>${s}</td><td>—</td><td>—</td><td>Unavailable</td></tr>`;
+    }
+    const change=Number(item.change_percent);
+    const changeText=Number.isFinite(change)?change.toFixed(2)+"%":"—";
+    return `<tr>
+     <td>${s}</td>
+     <td>${Number(item.price).toLocaleString("en-US")}</td>
+     <td>${changeText}</td>
+     <td>API</td>
+    </tr>`;
+   }).join("");
+
+  document.getElementById("apiStatus").textContent=
+   "Connected – API response received";
+  document.getElementById("updated").textContent=
+   "Last update: "+(result.updated_at || "Time not supplied");
+ }catch(error){
+  document.getElementById("apiStatus").textContent=
+   "Connection unavailable";
+  renderUnavailable();
+  document.getElementById("updated").textContent=
+   "Please check the secure API backend.";
+ }
+}
+
+document.getElementById("symbol").addEventListener("change",function(){
+ const area=document.getElementById("chartArea");
+ area.innerHTML="";
+ const container=document.createElement("div");
+ container.className="tradingview-widget-container";
+ container.style="height:100%;width:100%";
+ const widget=document.createElement("div");
+ widget.className="tradingview-widget-container__widget";
+ widget.style="height:100%;width:100%";
+ container.appendChild(widget);
+
+ const script=document.createElement("script");
+ script.src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js";
+ script.async=true;
+ script.textContent=JSON.stringify({
+  autosize:true,
+  symbol:this.value,
+  interval:"60",
+  timezone:"Etc/UTC",
+  theme:"light",
+  style:"1",
+  locale:"en",
+  allow_symbol_change:true,
+  calendar:false,
+  hide_side_toolbar:false,
+  withdateranges:true,
+  details:true,
+  hotlist:false,
+  studies:[]
+ });
+ container.appendChild(script);
+ area.appendChild(container);
+});
+
+loadRates();
+</script>
 
 </body>
 </html>
