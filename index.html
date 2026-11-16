@@ -365,7 +365,8 @@ function renderUnavailable(){
   `<tr>
     <td>${s}</td>
     <td>—</td>
-    <td>—</td>
+    try {
+  const quotes = await Promise.allSettled(
     <td>Not connected</td>
    </tr>`
  ).join("");
