@@ -382,7 +382,7 @@ async function loadRates(){
 
  
 const quotes = await Promise.allSettled(
-  symbols.map(async (symbol) => {
+ ["EUR/USD"].map(async (symbol) => {
     const url = `${API_ENDPOINT}?symbol=${encodeURIComponent(symbol)}`;
 
     const response = await fetch(url, {
